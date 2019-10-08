@@ -52,17 +52,17 @@ input_number:
     min: 0
     max: 100
     unit_of_measurement: '%'
-    icon: mdi:water-percent
+    icon: mdi:air-humidifier
   target_humidity_zone2:
     name: Target humidity for zone 2
     min: 0
     max: 100
     unit_of_measurement: '%'
-    icon: mdi:water-percent
+    icon: mdi:air-humidifier
   target_humidity_zone3:
     name: Target humidity for zone 3
     min: 0
     max: 100
     unit_of_measurement: '%'
-    icon: mdi:water-percent
+    icon: mdi:air-humidifier
 
