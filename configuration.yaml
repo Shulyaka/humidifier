@@ -1,0 +1,65 @@
+
+# Configure a default setup of Home Assistant (frontend, api, etc)
+default_config:
+
+# Uncomment this if you are using SSL/TLS, running in Docker container, etc.
+# http:
+#   base_url: example.duckdns.org:8123
+
+# Text to speech
+tts:
+  - platform: google_translate
+
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
+
+switch:
+  - platform: pcal9535a
+    i2c_address: 0x20
+    pins:
+      0: P0_0
+      1: P0_1
+      2: P0_2
+      3: P0_3
+
+sensor:
+  - platform: season
+    type: astronomical
+
+binary_sensor:
+  - platform: template
+    sensors:
+      humidifier_zone1:
+        friendly_name: "Humidifier Zone 1"
+        value_template: "{{ is_state('switch.p0_0', 'on') }}"
+        device_class: moisture
+      humidifier_zone2:
+        friendly_name: "Humidifier Zone 2"
+        value_template: "{{ is_state('switch.p0_1', 'on') }}"
+        device_class: moisture
+      humidifier_zone3:
+        friendly_name: "Humidifier Zone 3"
+        value_template: "{{ is_state('switch.p0_2', 'on') }}"
+        device_class: moisture
+
+input_number:
+  target_humidity_zone1:
+    name: Target humidity for zone 1
+    min: 0
+    max: 100
+    unit_of_measurement: '%'
+    icon: mdi:water-percent
+  target_humidity_zone2:
+    name: Target humidity for zone 2
+    min: 0
+    max: 100
+    unit_of_measurement: '%'
+    icon: mdi:water-percent
+  target_humidity_zone3:
+    name: Target humidity for zone 3
+    min: 0
+    max: 100
+    unit_of_measurement: '%'
+    icon: mdi:water-percent
+
