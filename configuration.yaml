@@ -34,14 +34,17 @@ binary_sensor:
         friendly_name: "Humidifier Zone 1"
         value_template: "{{ is_state('switch.p0_0', 'on') }}"
         device_class: opening
+        icon_template: "mdi:water-pump{% if is_state('binary_sensor.humidifier_zone1', 'off') -%}-off{%- endif %}"
       humidifier_zone2:
         friendly_name: "Humidifier Zone 2"
         value_template: "{{ is_state('switch.p0_1', 'on') }}"
         device_class: opening
+        icon_template: "mdi:water-pump{% if is_state('binary_sensor.humidifier_zone2', 'off') -%}-off{%- endif %}"
       humidifier_zone3:
         friendly_name: "Humidifier Zone 3"
         value_template: "{{ is_state('switch.p0_2', 'on') }}"
         device_class: opening
+        icon_template: "mdi:water-pump{% if is_state('binary_sensor.humidifier_zone3', 'off') -%}-off{%- endif %}"
 
 input_number:
   target_humidity_zone1:
