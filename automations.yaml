@@ -6,7 +6,7 @@
       event: start
   action:
     service_template: >
-      {% if states.sensor.zone1_humidity.state | float < states.input_number.target_humidity_zone1.state | float %}
+      {% if not is_state('sensor.zone1_humidity', 'unavailable') and states('sensor.zone1_humidity') | float < states('input_number.target_humidity_zone1') | float %}
       switch.turn_on
       {% else %}
       switch.turn_off
@@ -21,7 +21,7 @@
       event: start
   action:
     service_template: >
-      {% if states.sensor.zone2_humidity.state | float < states.input_number.target_humidity_zone2.state | float %}
+      {% if not is_state('sensor.zone2_humidity', 'unavailable') and states('sensor.zone2_humidity') | float < states('input_number.target_humidity_zone2') | float %}
       switch.turn_on
       {% else %}
       switch.turn_off
@@ -36,7 +36,7 @@
       event: start
   action:
     service_template: >
-      {% if states.sensor.zone3_humidity.state | float < states.input_number.target_humidity_zone3.state | float %}
+      {% if not is_state('sensor.zone3_humidity', 'unavailable') and states('sensor.zone3_humidity') | float < states('input_number.target_humidity_zone3') | float %}
       switch.turn_on
       {% else %}
       switch.turn_off
