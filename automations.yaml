@@ -1,5 +1,4 @@
 - alias: Set target humidity Zone 1
-  description: ''
   trigger:
   - entity_id: input_number.target_humidity_zone1
     platform: state
@@ -10,7 +9,6 @@
       humidity: "{{ trigger.to_state.state }}"
     service: humidity.set_humidity
 - alias: Set target humidity Zone 2
-  description: ''
   trigger:
   - entity_id: input_number.target_humidity_zone2
     platform: state
@@ -21,7 +19,6 @@
       humidity: "{{ trigger.to_state.state }}"
     service: humidity.set_humidity
 - alias: Set target humidity Zone 3
-  description: ''
   trigger:
   - entity_id: input_number.target_humidity_zone3
     platform: state
