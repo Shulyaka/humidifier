@@ -10,3 +10,5 @@ humidity.hygrostat_zone_2:
   icon: mdi:air-humidifier
 humidity.hygrostat_zone_3:
   icon: mdi:air-humidifier
+binary_sensor.updater:
+  hidden:true
