@@ -13,38 +13,21 @@ tts:
 group: !include groups.yaml
 automation: !include automations.yaml
 script: !include scripts.yaml
+homeassistant:
+  customize: !include customize.yaml
 
 switch:
   - platform: pcal9535a
     i2c_address: 0x20
     pins:
-      0: P0_0
-      1: P0_1
-      2: P0_2
-      3: P0_3
+      0: Zone1
+      1: Zone2
+      2: Zone3
+#      3: Relay 4
 
 sensor:
   - platform: season
     type: astronomical
-
-binary_sensor:
-  - platform: template
-    sensors:
-      humidifier_zone1:
-        friendly_name: "Humidifier Zone 1"
-        value_template: "{{ is_state('switch.p0_0', 'on') }}"
-        device_class: opening
-        icon_template: "mdi:water-pump{% if is_state('binary_sensor.humidifier_zone1', 'off') -%}-off{%- endif %}"
-      humidifier_zone2:
-        friendly_name: "Humidifier Zone 2"
-        value_template: "{{ is_state('switch.p0_1', 'on') }}"
-        device_class: opening
-        icon_template: "mdi:water-pump{% if is_state('binary_sensor.humidifier_zone2', 'off') -%}-off{%- endif %}"
-      humidifier_zone3:
-        friendly_name: "Humidifier Zone 3"
-        value_template: "{{ is_state('switch.p0_2', 'on') }}"
-        device_class: opening
-        icon_template: "mdi:water-pump{% if is_state('binary_sensor.humidifier_zone3', 'off') -%}-off{%- endif %}"
 
 input_number:
   target_humidity_zone1:
@@ -52,17 +35,60 @@ input_number:
     min: 0
     max: 100
     unit_of_measurement: '%'
-    icon: mdi:air-humidifier
+    icon: mdi:cogs
   target_humidity_zone2:
     name: Target humidity for zone 2
     min: 0
     max: 100
     unit_of_measurement: '%'
-    icon: mdi:air-humidifier
+    icon: mdi:cogs
   target_humidity_zone3:
     name: Target humidity for zone 3
     min: 0
     max: 100
     unit_of_measurement: '%'
-    icon: mdi:air-humidifier
+    icon: mdi:cogs
 
+humidity:
+  - platform: generic_hygrostat
+    name: Hygrostat Zone 1
+    humidifier: switch.zone1
+    target_sensor: sensor.zone1_humidity
+    min_humidity: 0
+    max_humidity: 100
+    dry_mode: false
+    target_humidity: 50
+    dry_tolerance: 3
+    wet_tolerance: 3
+#    min_cycle_duration:
+#      seconds: 30
+    initial_humidifier_mode: "humidify"
+#    away_humidity: 30
+  - platform: generic_hygrostat
+    name: Hygrostat Zone 2
+    humidifier: switch.zone2
+    target_sensor: sensor.zone2_humidity
+    min_humidity: 0
+    max_humidity: 100
+    dry_mode: false
+    target_humidity: 50
+    dry_tolerance: 3
+    wet_tolerance: 3
+#    min_cycle_duration:
+#      seconds: 30
+    initial_humidifier_mode: "humidify"
+#    away_humidity: 30
+  - platform: generic_hygrostat
+    name: Hygrostat Zone 3
+    humidifier: switch.zone3
+    target_sensor: sensor.zone3_humidity
+    min_humidity: 0
+    max_humidity: 100
+    dry_mode: false
+    target_humidity: 50
+    dry_tolerance: 3
+    wet_tolerance: 3
+#    min_cycle_duration:
+#      seconds: 30
+    initial_humidifier_mode: "humidify"
+#    away_humidity: 30

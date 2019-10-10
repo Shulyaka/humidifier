@@ -1,0 +1,12 @@
+switch.zone1:
+  icon: mdi:pipe
+switch.zone2:
+  icon: mdi:pipe
+switch.zone3:
+  icon: mdi:pipe
+humidity.hygrostat_zone_1:
+  icon: mdi:air-humidifier
+humidity.hygrostat_zone_2:
+  icon: mdi:air-humidifier
+humidity.hygrostat_zone_3:
+  icon: mdi:air-humidifier

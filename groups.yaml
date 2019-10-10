@@ -6,7 +6,7 @@ zone1:
     - sensor.zone1_temperature
     - sensor.zone1_humidity
     - input_number.target_humidity_zone1
-    - binary_sensor.humidifier_zone1
+    - humidity.hygrostat_zone_1
 zone2:
   name: Zone 2
   control: hidden
@@ -15,7 +15,7 @@ zone2:
     - sensor.zone2_temperature
     - sensor.zone2_humidity
     - input_number.target_humidity_zone2
-    - binary_sensor.humidifier_zone2
+    - humidity.hygrostat_zone_3
 zone3:
   name: Zone 3
   control: hidden
@@ -24,5 +24,4 @@ zone3:
     - sensor.zone3_temperature
     - sensor.zone3_humidity
     - input_number.target_humidity_zone3
-    - binary_sensor.humidifier_zone3
-
+    - humidity.hygrostat_zone_3

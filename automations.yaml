@@ -1,46 +1,33 @@
-- alias: humidifier_zone1
+- alias: Set target humidity Zone 1
+  description: ''
   trigger:
-    - platform: state
-      entity_id: sensor.zone1_humidity, input_number.target_humidity_zone1
-    - platform: homeassistant
-      event: start
+  - entity_id: input_number.target_humidity_zone1
+    platform: state
+  condition: []
   action:
-    service_template: >
-      {% if not is_state('sensor.zone1_humidity', 'unavailable') and states('sensor.zone1_humidity') | float < states('input_number.target_humidity_zone1') | float %}
-      switch.turn_on
-      {% else %}
-      switch.turn_off
-      {% endif %}
-    data:
-      entity_id: switch.p0_0
-- alias: humidifier_zone2
+  - data_template:
+      entity_id: humidity.hygrostat_zone_1
+      humidity: "{{ trigger.to_state.state }}"
+    service: humidity.set_humidity
+- alias: Set target humidity Zone 2
+  description: ''
   trigger:
-    - platform: state
-      entity_id: sensor.zone2_humidity, input_number.target_humidity_zone2
-    - platform: homeassistant
-      event: start
+  - entity_id: input_number.target_humidity_zone2
+    platform: state
+  condition: []
   action:
-    service_template: >
-      {% if not is_state('sensor.zone2_humidity', 'unavailable') and states('sensor.zone2_humidity') | float < states('input_number.target_humidity_zone2') | float %}
-      switch.turn_on
-      {% else %}
-      switch.turn_off
-      {% endif %}
-    data:
-      entity_id: switch.p0_1
-- alias: humidifier_zone3
+  - data_template:
+      entity_id: humidity.hygrostat_zone_2
+      humidity: "{{ trigger.to_state.state }}"
+    service: humidity.set_humidity
+- alias: Set target humidity Zone 3
+  description: ''
   trigger:
-    - platform: state
-      entity_id: sensor.zone3_humidity, input_number.target_humidity_zone3
-    - platform: homeassistant
-      event: start
+  - entity_id: input_number.target_humidity_zone3
+    platform: state
+  condition: []
   action:
-    service_template: >
-      {% if not is_state('sensor.zone3_humidity', 'unavailable') and states('sensor.zone3_humidity') | float < states('input_number.target_humidity_zone3') | float %}
-      switch.turn_on
-      {% else %}
-      switch.turn_off
-      {% endif %}
-    data:
-      entity_id: switch.p0_2
-
+  - data_template:
+      entity_id: humidity.hygrostat_zone_3
+      humidity: "{{ trigger.to_state.state }}"
+    service: humidity.set_humidity
