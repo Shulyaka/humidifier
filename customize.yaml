@@ -12,3 +12,9 @@ humidity.hygrostat_zone_3:
   icon: mdi:air-humidifier
 binary_sensor.updater:
   hidden: true
+automation.set_target_humidity_zone_1:
+  hidden: true
+automation.set_target_humidity_zone_2:
+  hidden: true
+automation.set_target_humidity_zone_3:
+  hidden: true
