@@ -48,11 +48,39 @@ input_number:
     max: 100
     unit_of_measurement: '%'
     icon: mdi:cogs
+  idle_time:
+    name: Idle time
+    min: 0
+    max: 600
+    mode: box
+    unit_of_measurement: 'sec'
+    icon: mdi:clock
+  working_time:
+    name: Working time
+    min: 0
+    max: 600
+    mode: box
+    unit_of_measurement: 'sec'
+    icon: mdi:clock-outline
+
+input_boolean:
+  humidify_zone1:
+    name: Humidifying Zone 1
+    initial: false
+    icon: mdi:water
+  humidify_zone2:
+    name: Humidifying Zone 2
+    initial: false
+    icon: mdi:water
+  humidify_zone3:
+    name: Humidifying Zone 3
+    initial: false
+    icon: mdi:water
 
 humidity:
   - platform: generic_hygrostat
     name: Hygrostat Zone 1
-    humidifier: switch.zone1
+    humidifier: input_boolean.humidify_zone1
     target_sensor: sensor.zone1_humidity
     min_humidity: 0
     max_humidity: 100
@@ -66,7 +94,7 @@ humidity:
 #    away_humidity: 30
   - platform: generic_hygrostat
     name: Hygrostat Zone 2
-    humidifier: switch.zone2
+    humidifier: input_boolean.humidify_zone2
     target_sensor: sensor.zone2_humidity
     min_humidity: 0
     max_humidity: 100
@@ -80,7 +108,7 @@ humidity:
 #    away_humidity: 30
   - platform: generic_hygrostat
     name: Hygrostat Zone 3
-    humidifier: switch.zone3
+    humidifier: input_boolean.humidify_zone3
     target_sensor: sensor.zone3_humidity
     min_humidity: 0
     max_humidity: 100
