@@ -20,25 +20,25 @@ automation.set_target_humidity_zone_2:
   hidden: true
 automation.set_target_humidity_zone_3:
   hidden: true
-automations.pump_control:
+automation.pump_control:
   hidden: true
-automations.toggle_switch_zone_1:
+automation.toggle_switch_zone_1:
   hidden: true
-automations.toggle_switch_zone_2:
+automation.toggle_switch_zone_2:
   hidden: true
-automations.toggle_switch_zone_3:
+automation.toggle_switch_zone_3:
   hidden: true
-automations.limit_work_time_zone_1:
+automation.limit_work_time_zone_1:
   hidden: true
-automations.limit_work_time_zone_2:
+automation.limit_work_time_zone_2:
   hidden: true
-automations.limit_work_time_zone_3:
+automation.limit_work_time_zone_3:
   hidden: true
-automations.limit_idle_time_zone_1:
+automation.limit_idle_time_zone_1:
   hidden: true
-automations.limit_idle_time_zone_2:
+automation.limit_idle_time_zone_2:
   hidden: true
-automations.limit_idle_time_zone_3:
+automation.limit_idle_time_zone_3:
   hidden: true
 input_boolean.humidify_zone1:
   hidden: true
