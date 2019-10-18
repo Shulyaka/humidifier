@@ -28,3 +28,17 @@
       entity_id: humidity.hygrostat_zone_3
       humidity: "{{ trigger.to_state.state }}"
     service: humidity.set_humidity
+- alias: Pump control
+  trigger:
+  - entity_id: switch.zone1, switch.zone2, switch.zone3
+    platform: state
+  condition: []
+  action:
+  - service_template: >
+      {% if is_state('switch.zone1', 'on') or is_state('switch.zone2', 'on') or is_state('switch.zone3', 'on') %}
+      switch.turn_on
+      {% else %}
+      switch.turn_off
+      {% endif %}
+    data:
+      entity_id: switch.pump

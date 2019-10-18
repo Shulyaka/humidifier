@@ -4,6 +4,8 @@ switch.zone2:
   icon: mdi:pipe
 switch.zone3:
   icon: mdi:pipe
+switch.pump:
+  icon: mdi:water-pump
 humidity.hygrostat_zone_1:
   icon: mdi:air-humidifier
 humidity.hygrostat_zone_2:
