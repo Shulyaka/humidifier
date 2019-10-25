@@ -40,6 +40,8 @@ automation.limit_idle_time_zone_2:
   hidden: true
 automation.limit_idle_time_zone_3:
   hidden: true
+automation.close_on_shutdown:
+  hidden: true
 input_boolean.humidify_zone1:
   hidden: true
 input_boolean.humidify_zone2:

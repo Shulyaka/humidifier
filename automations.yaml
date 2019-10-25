@@ -165,3 +165,11 @@
   - service: switch.turn_on
     data:
       entity_id: switch.zone3
+- alias: Close on shutdown
+  trigger:
+  - platform: homeassistant
+    event: shutdown
+  action:
+  - service: switch.turn_off
+    data:
+      entity_id: switch.zone1, switch.zone2, switch.zone3, switch.pump
